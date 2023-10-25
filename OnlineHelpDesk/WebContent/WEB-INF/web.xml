@@ -4,4 +4,15 @@
   <welcome-file-list>
     <welcome-file>userLogin.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>userLoginServlet</servlet-name>
+    <servlet-class>com.servlet.userLoginServlet</servlet-class>
+    </servlet>
+   <servlet-mapping>
+     <servlet-name>userLoginServlet</servlet-name>
+     <url-pattern>/ulogin</url-pattern>
+   </servlet-mapping>
 </web-app>
+
+
