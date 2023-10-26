@@ -27,7 +27,7 @@
     
     <servlet>
         <servlet-name>CreateTicketServlet</servlet-name>
-        <servlet-class>com.servlet.CreateTicketServlett</servlet-class>
+        <servlet-class>com.servlet.CreateTicketServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

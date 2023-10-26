@@ -86,7 +86,7 @@ public class UserRegistrationServlet extends HttpServlet {
 		        
 			} else {
 				// user doesn't upload any profile image 
-				fileName = "default.jpg";
+				fileName = "default.png";
 			}
 			
 	        User user = new User(username, firstName, lastName, password, email, phone, dateOfBirth, gender, fileName);

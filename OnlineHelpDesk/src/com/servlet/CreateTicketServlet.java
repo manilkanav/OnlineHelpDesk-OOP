@@ -22,6 +22,7 @@ import javax.servlet.http.Part;
 
 import com.dao.RefImageDAO;
 import com.dao.TicketDAO;
+import com.dao.UserDAO;
 import com.dbUtil.CommonUtils;
 import com.model.RefImage;
 import com.model.Ticket;
@@ -42,10 +43,14 @@ public class CreateTicketServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		String username = (String) session.getAttribute("username");
+		
+		UserDAO userdao = new UserDAO();
+		User user = userdao.getUserByUsername(username);
 		
 		if (user == null) {
 			response.sendRedirect("userLogin.jsp");
+			return;
 		}
 		
 		// Get data from Form
@@ -69,6 +74,7 @@ public class CreateTicketServlet extends HttpServlet {
 
             for (Part part : parts) {
             	String fileName = CommonUtils.generateUniqueFileName(part);
+            	String uniquefileName = CommonUtils.generateUniqueFileName(part);
 
                 if (fileName != null && !fileName.isEmpty()) {
                 	String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
@@ -79,7 +85,7 @@ public class CreateTicketServlet extends HttpServlet {
     		        }
  
     		        try (InputStream input = filePart.getInputStream()) {
-    		            Path filePath = Paths.get(uploadDirectory.getAbsolutePath(), fileName);
+    		            Path filePath = Paths.get(uploadDirectory.getAbsolutePath(), uniquefileName);
     		            Files.copy(input, filePath, StandardCopyOption.REPLACE_EXISTING);
     		            
     		            RefImage referenceImage = new RefImage(ticketId, filePath.toString());
