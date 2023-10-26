@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class Ticket {
 	private int ticketId;
-	private int userIid;
+	private String ticketCode;
+	private int userId;
 	private String subject;
 	private String description;
 	private String status;
@@ -12,24 +13,24 @@ public class Ticket {
 	private Date createAt;
 	private Date resolvedAt;
 	
-	public Ticket(int userIid, String subject, String description, String status, String type) {
-		this.userIid = userIid;
+	public Ticket(int userId, String subject, String description, String status, String type) {
+		this.userId = userId;
 		this.subject = subject;
 		this.description = description;
 		this.status = status;
 		this.type = type;
 	}
 
-	public Ticket(int ticketId, int userIid, String subject, String description, String status, String type,
-			Date createAt) {
-		super();
+	public Ticket(int ticketId, int userId, String subject, String description, String status, String type,
+			Date createAt, Date resolvedAt) {
 		this.ticketId = ticketId;
-		this.userIid = userIid;
+		this.userId = userId;
 		this.subject = subject;
 		this.description = description;
 		this.status = status;
 		this.type = type;
 		this.createAt = createAt;
+		this.resolvedAt = resolvedAt;
 	}
 
 	public int getTicketId() {
@@ -40,12 +41,12 @@ public class Ticket {
 		this.ticketId = ticketId;
 	}
 
-	public int getUserIid() {
-		return userIid;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUserIid(int userIid) {
-		this.userIid = userIid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getSubject() {

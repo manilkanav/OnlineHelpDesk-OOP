@@ -24,6 +24,16 @@
         <servlet-name>UserRegistrationServlet</servlet-name>
         <url-pattern>/signup</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CreateTicketServlet</servlet-name>
+        <servlet-class>com.servlet.CreateTicketServlett</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CreateTicketServlet</servlet-name>
+        <url-pattern>/createticket</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

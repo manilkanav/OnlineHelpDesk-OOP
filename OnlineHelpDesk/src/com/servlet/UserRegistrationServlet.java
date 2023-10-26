@@ -70,7 +70,7 @@ public class UserRegistrationServlet extends HttpServlet {
 			if(filePart != null && filePart.getSize() > 0) {
 				fileName = CommonUtils.generateUniqueFileName(filePart);
 				
-			 String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+				String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 		        File uploadDirectory = new File(uploadPath);
 		        
 		        if (!uploadDirectory.exists()) {

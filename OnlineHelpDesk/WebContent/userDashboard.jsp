@@ -15,5 +15,22 @@
         <%= user.getId() %>
     </p>
     <img src="${userImageURL}" alt="Profile Image">
+    <a href="createTicket.jsp">Create Ticket</a>
+    
+    
+    <ul>
+        <c:forEach items="${userTickets}" var="ticket">
+            <li>
+                Ticket ID: ${ticket.id}<br>
+                Subject: ${ticket.subject}<br>
+                Status: ${ticket.status}<br>
+                <!-- "View Details" button to view ticket details -->
+                <form action="ViewTicketDetailsServlet" method="get">
+                    <input type="hidden" name="ticketId" value="${ticket.id}">
+                    <button type="submit">View Details</button>
+                </form>
+            </li>
+        </c:forEach>
+    </ul>
 </body>
 </html>
