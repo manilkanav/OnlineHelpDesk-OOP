@@ -14,5 +14,6 @@
 	<p>
         <%= user.getId() %>
     </p>
+    <img src="${userImageURL}" alt="Profile Image">
 </body>
 </html>

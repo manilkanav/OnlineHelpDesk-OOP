@@ -39,6 +39,7 @@ public class UserRegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		UserDAO userdao = new UserDAO();
+		String fileName;
 		
 		try {
 			// retrieve form data
@@ -52,7 +53,7 @@ public class UserRegistrationServlet extends HttpServlet {
 			String gender = request.getParameter("gender");
 			
 			Date dateOfBirth = null;
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			
 			try {
 				// Parse String into a Date object
@@ -62,25 +63,32 @@ public class UserRegistrationServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			String fileName = "default.jpg";
 			
 			// Process the uploaded profile image
 			Part filePart = request.getPart("profile_img");
-	        fileName = CommonUtils.generateUniqueFileName(filePart);
-	        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
-	        File uploadDirectory = new File(uploadPath);
-	        
-	        if (!uploadDirectory.exists()) {
-	            uploadDirectory.mkdirs();
-	        }
-	        
-	        try (InputStream input = filePart.getInputStream()) {
-	            Path filePath = Paths.get(uploadDirectory.getAbsolutePath(), fileName);
-	            Files.copy(input, filePath, StandardCopyOption.REPLACE_EXISTING);
-	        } catch(IOException e) {
-	        	e.printStackTrace();
-	        }
-	        
+			
+			if(filePart != null && filePart.getSize() > 0) {
+				fileName = CommonUtils.generateUniqueFileName(filePart);
+				
+			 String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+		        File uploadDirectory = new File(uploadPath);
+		        
+		        if (!uploadDirectory.exists()) {
+		            uploadDirectory.mkdirs();
+		        }
+		        
+		        try (InputStream input = filePart.getInputStream()) {
+		            Path filePath = Paths.get(uploadDirectory.getAbsolutePath(), fileName);
+		            Files.copy(input, filePath, StandardCopyOption.REPLACE_EXISTING);
+		        } catch(IOException e) {
+		        	e.printStackTrace();
+		        }
+		        
+			} else {
+				// user doesn't upload any profile image 
+				fileName = "default.jpg";
+			}
+			
 	        User user = new User(username, firstName, lastName, password, email, phone, dateOfBirth, gender, fileName);
 	        
 	        // upload user to database
