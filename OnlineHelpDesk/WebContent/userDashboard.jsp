@@ -13,12 +13,15 @@
 	<link href="css/styles.css" rel="stylsheet">
 </head>
 <body>
+<<<<<<< HEAD
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>	
      
 	<% User user = (User) request.getAttribute("user"); %>
 	<p>
         <%= user.getId() %>
     </p>
+    
+    <% String userImageURL = (String) session.getAttribute("userImageURL"); %>
     <img src="${userImageURL}" alt="Profile Image">
     <a href="createTicket.jsp">Create Ticket</a>
     

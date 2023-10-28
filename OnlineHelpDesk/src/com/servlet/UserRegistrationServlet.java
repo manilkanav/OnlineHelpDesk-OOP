@@ -51,6 +51,7 @@ public class UserRegistrationServlet extends HttpServlet {
 			String phone = request.getParameter("phone");
 			String dateOfBirthStr = request.getParameter("date_of_birth");
 			String gender = request.getParameter("gender");
+			System.out.println(gender.length());
 			
 			Date dateOfBirth = null;
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
