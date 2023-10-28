@@ -59,7 +59,7 @@ public class CreateAgentServlet extends HttpServlet {
         int agentId = agentdao.createAgent(newAgent);
 
         if (agentId != -1) {
-        	response.sendRedirect("AdminDashboardServlet");
+        	response.sendRedirect("admindashboard");
         } else {
         	request.setAttribute("error", "agent creation failed");
         	RequestDispatcher dis = request.getRequestDispatcher("createAdmin.jsp");
