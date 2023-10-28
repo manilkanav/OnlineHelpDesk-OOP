@@ -20,39 +20,36 @@ import com.model.User;
 /**
  * Servlet implementation class UserDashboardServlet
  */
-@WebServlet("/UserDashboardServlet")
+@WebServlet("/userdashboard")
 public class UserDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String IMAGE_DIRECTORY = "Uploads" + File.separator + "profileImages";
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 HttpSession session = request.getSession();
-	        String username = (String) session.getAttribute("username");
+	        User user = (User) session.getAttribute("user");
 
 	        // Check if the user is logged in
-	        if (username == null) {
+	        if (user == null) {
 	            // Redirect to the login page or display an error
 	            response.sendRedirect("userLogin.jsp");
 	            return;
 	        }
 
 	        // Fetch the user's tickets
-	        UserDAO userdao = new UserDAO();
-	        User user = userdao.getUserByUsername(username);
+	        
 
 	        if (user != null) {
 	            int userId = user.getId();
 	            
-	            String userImage = IMAGE_DIRECTORY + File.separator + user.getProfile_img();
 
 	            TicketDAO ticketdao = new TicketDAO();
 	            List<Ticket> userTickets = ticketdao.getTicketsByUserId(userId);
 
 	            // Store the user's tickets in a request attribute
-	            request.setAttribute("userImage", userImage);
 	            request.setAttribute("userTickets", userTickets);
 	        }
 

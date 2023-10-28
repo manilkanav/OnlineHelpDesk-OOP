@@ -1,5 +1,6 @@
 package com.servlet;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -16,10 +17,10 @@ import com.model.User;
 /**
  * Servlet implementation class userLoginServlet
  */
-@WebServlet("/userLoginServlet")
+@WebServlet("/ulogin")
 public class userLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private static final String IMAGE_DIRECTORY = "Uploads" + File.separator + "profileImages";
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -36,7 +37,10 @@ public class userLoginServlet extends HttpServlet {
             session.setAttribute("user", user);
             session.setAttribute("userType", "user");
             
-            response.sendRedirect("userDashboard.jsp");
+            String userImage = IMAGE_DIRECTORY + File.separator + user.getProfile_img();
+            session.setAttribute("userImageURL", userImage);
+            
+            response.sendRedirect("userdashboard");
             
             
         } else {

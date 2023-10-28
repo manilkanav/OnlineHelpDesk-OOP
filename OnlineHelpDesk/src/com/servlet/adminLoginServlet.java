@@ -16,7 +16,7 @@ import com.model.Admin;
 /**
  * Servlet implementation class adminLoginServlet
  */
-@WebServlet("/adminLoginServlet")
+@WebServlet("/adlogin")
 public class adminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,10 +32,11 @@ public class adminLoginServlet extends HttpServlet {
 		
 		if (admin != null && admin.getPassword().equals(password)) {
             HttpSession session = request.getSession();
-            session.setAttribute("agentnane", username);
+            session.setAttribute("username", username);
             session.setAttribute("userType", "admin");
+            session.setAttribute("admin", admin);
             
-            response.sendRedirect("AdminDashboardServlet");
+            response.sendRedirect("admindashboard");
             
             
         } else {

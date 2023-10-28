@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
     <meta charset="ISO-8859-1">
     <title>Online Helpdesk - Create Ticket</title>
     
@@ -21,8 +22,14 @@
         	font-weight: 700;
         }
     </style>
+=======
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="../css/styles.css" rel="stylesheet"> 
+>>>>>>> refs/remotes/origin/main
 </head>
 <body>
+<<<<<<< HEAD
  <div style="background-color: white;">
         <header class="border-bottom">
             <div class="container-fluid">
@@ -92,5 +99,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+=======
+
+	<form action="createticket" method="post" enctype="multipart/form-data">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+        
+        <input type="hidden" name="status" value="Open"> <!-- Set status as Open by default -->
+        
+        <label for="type">Type:</label>
+        <select id="type" name="type" required>
+            <option value="Technical">Technical</option>
+            <option value="Sales">Sales</option>
+            <option value="Billing">Billing</option>
+            <option value="General">General</option>
+        </select>
+        
+        <label for="images">Attach Images:</label>
+        <input type="file" id="images" name="images" accept="image/*" multiple>
+        
+        <input type="submit" value="Submit Ticket">
+    </form>
+>>>>>>> refs/remotes/origin/main
 </body>
 </html>

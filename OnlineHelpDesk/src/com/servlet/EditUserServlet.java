@@ -16,7 +16,7 @@ import com.model.User;
 /**
  * Servlet implementation class EditUserServlet
  */
-@WebServlet("/EditUserServlet")
+@WebServlet("/edituser")
 public class EditUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

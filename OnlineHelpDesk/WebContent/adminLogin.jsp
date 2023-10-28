@@ -20,7 +20,7 @@
      	<h1>${error}</h1>
      </c:if>   
     <div class="container-fluid">
-	 	<form class="mx-auto" action="ulogin" method="post">
+	 	<form class="mx-auto" action="adlogin" method="post">
 	 	<h4 class="text-center">Admin Login</h4>
 		 	<div class="mb-3">
 		        <label for="username" class="form-label">Username:</label>

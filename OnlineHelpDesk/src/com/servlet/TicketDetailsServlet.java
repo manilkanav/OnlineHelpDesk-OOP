@@ -20,7 +20,7 @@ import com.model.Ticket;
 /**
  * Servlet implementation class TicketDetailsServlet
  */
-@WebServlet("/TicketDetailsServlet")
+@WebServlet("/ticketdetails")
 public class TicketDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

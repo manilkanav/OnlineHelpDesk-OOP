@@ -12,17 +12,15 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link href="css/styles.css" rel="stylsheet">
 </head>
-<body>
-<<<<<<< HEAD
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>	
+<body>	
      
-	<% User user = (User) request.getAttribute("user"); %>
+	<% User user = (User) session.getAttribute("user"); 
+	   String userImageURL = (String) session.getAttribute("userImageURL");%>
 	<p>
         <%= user.getId() %>
     </p>
     
-    <% String userImageURL = (String) session.getAttribute("userImageURL"); %>
-    <img src="${userImageURL}" alt="Profile Image">
+    <img src="<%= userImageURL %>" alt="Profile Image">
     <a href="createTicket.jsp">Create Ticket</a>
     
     
@@ -40,5 +38,6 @@
             </li>
         </c:forEach>
     </ul>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

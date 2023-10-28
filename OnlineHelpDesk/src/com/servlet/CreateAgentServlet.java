@@ -18,7 +18,7 @@ import com.model.Agent;
 /**
  * Servlet implementation class CreateAgentServlet
  */
-@WebServlet("/CreateAgentServlet")
+@WebServlet("/createagent")
 public class CreateAgentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

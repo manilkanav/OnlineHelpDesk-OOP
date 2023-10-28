@@ -15,7 +15,7 @@ import com.dao.TicketDAO;
 /**
  * Servlet implementation class EscalateTicketServlet
  */
-@WebServlet("/EscalateTicketServlet")
+@WebServlet("/escalate")
 public class EscalateTicketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

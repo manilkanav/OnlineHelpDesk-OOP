@@ -18,11 +18,11 @@ import com.model.Agent;
 /**
  * Servlet implementation class AdminDashboardServlet
  */
-@WebServlet("/AdminDashboardServlet")
+@WebServlet("/admindashboard")
 public class AdminDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute("admin");
 

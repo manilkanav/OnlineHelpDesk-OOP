@@ -14,7 +14,7 @@ import com.dao.AgentTicketAssignmentDAO;
 /**
  * Servlet implementation class AssignTicketServlet
  */
-@WebServlet("/AssignTicketServlet")
+@WebServlet("/assignticket")
 public class AssignTicketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
