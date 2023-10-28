@@ -10,10 +10,12 @@
 <title>User Dashboard</title>
 </head>
 <body>
-	<% User user = (User) request.getAttribute("user"); %>
+	<% User user = (User) session.getAttribute("user"); %>
 	<p>
         <%= user.getId() %>
     </p>
+    
+    <% String userImageURL = (String) session.getAttribute("userImageURL"); %>
     <img src="${userImageURL}" alt="Profile Image">
     <a href="createTicket.jsp">Create Ticket</a>
     

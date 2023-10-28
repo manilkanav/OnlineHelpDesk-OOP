@@ -35,13 +35,12 @@ public class userLoginServlet extends HttpServlet {
 		if (user != null && user.getPassword().equals(password)) {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
-            request.setAttribute("user", user);
+            session.setAttribute("user", user);
             
-            String imageUrl = request.getServletContext().getRealPath(IMAGE_DIRECTORY) + File.separator + user.getProfile_img();
-            request.setAttribute("userImageURL", imageUrl);
+            String imageUrl = IMAGE_DIRECTORY + File.separator + user.getProfile_img();
+            session.setAttribute("userImageURL", imageUrl);
             
-            RequestDispatcher dis = request.getRequestDispatcher("userDashboard.jsp");
-            dis.forward(request, response);
+            response.sendRedirect("userDashboard.jsp");
             
             
         } else {

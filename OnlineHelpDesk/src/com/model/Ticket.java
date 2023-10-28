@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Ticket {
 	private int ticketId;
-	private String ticketCode;
 	private int userId;
 	private String subject;
 	private String description;

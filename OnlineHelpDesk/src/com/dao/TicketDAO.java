@@ -17,13 +17,14 @@ public class TicketDAO {
 		int generatedTicketId = -1;
 		
 		try {
-			String query = "INSERT INTO Ticket (subject, description, status, type) VALUES (?, ?, ?, ?, ?)";
+			String query = "INSERT INTO ticket (user_id, subject, description, status, type) VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
 			
-            stmt.setString(1, ticket.getSubject());
-            stmt.setString(2, ticket.getDescription());
-            stmt.setString(3, ticket.getStatus());
-            stmt.setString(4, ticket.getType());
+			stmt.setLong(1, ticket.getUserId());
+            stmt.setString(2, ticket.getSubject());
+            stmt.setString(3, ticket.getDescription());
+            stmt.setString(4, ticket.getStatus());
+            stmt.setString(5, ticket.getType());
             
             int rowsAffected = stmt.executeUpdate();
             
@@ -51,7 +52,7 @@ public class TicketDAO {
 		List<Ticket> tickets = new ArrayList<>();
 		
 		try {
-			String query = "SELECT * FROM tickets WHERE user_id = ?";
+			String query = "SELECT * FROM ticket WHERE user_id = ?";
 			
 			PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, userId);
