@@ -19,7 +19,7 @@ import com.model.Ticket;
 /**
  * Servlet implementation class AgentDashboardServlet
  */
-@WebServlet("/AgentDashboardServlet")
+@WebServlet("/agentdashboard")
 public class AgentDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

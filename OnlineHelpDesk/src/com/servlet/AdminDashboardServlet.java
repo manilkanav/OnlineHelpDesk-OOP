@@ -18,7 +18,7 @@ import com.model.Agent;
 /**
  * Servlet implementation class AdminDashboardServlet
  */
-@WebServlet("/AdminDashboardServlet")
+@WebServlet("/admindashboard")
 public class AdminDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

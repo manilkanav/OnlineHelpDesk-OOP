@@ -13,7 +13,7 @@ import com.dao.AgentDAO;
 /**
  * Servlet implementation class DeleteAgentServlet
  */
-@WebServlet("/DeleteAgentServlet")
+@WebServlet("/deleteagent")
 public class DeleteAgentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

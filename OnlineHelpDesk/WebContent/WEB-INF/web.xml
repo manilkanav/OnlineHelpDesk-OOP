@@ -5,66 +5,7 @@
     <welcome-file>userLogin.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
-    <servlet-name>userLoginServlet</servlet-name>
-    <servlet-class>com.servlet.userLoginServlet</servlet-class>
-    </servlet>
-    
-   <servlet-mapping>
-     <servlet-name>userLoginServlet</servlet-name>
-     <url-pattern>/ulogin</url-pattern>
-   </servlet-mapping>
-   
-   <servlet>
-    <servlet-name>agentLoginServlet</servlet-name>
-    <servlet-class>com.servlet.agentLoginServlet</servlet-class>
-    </servlet>
-    
-   <servlet-mapping>
-     <servlet-name>agentLoginServlet</servlet-name>
-     <url-pattern>/aglogin</url-pattern>
-   </servlet-mapping>
-   
-   <servlet>
-    <servlet-name>adminLoginServlet</servlet-name>
-    <servlet-class>com.servlet.agentLoginServlet</servlet-class>
-    </servlet>
-    
-   <servlet-mapping>
-     <servlet-name>adminLoginServlet</servlet-name>
-     <url-pattern>/adlogin</url-pattern>
-   </servlet-mapping>
-   
-   
-   <servlet>
-        <servlet-name>UserRegistrationServlet</servlet-name>
-        <servlet-class>com.servlet.UserRegistrationServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>UserRegistrationServlet</servlet-name>
-        <url-pattern>/signup</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>CreateTicketServlet</servlet-name>
-        <servlet-class>com.servlet.CreateTicketServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>CreateTicketServlet</servlet-name>
-        <url-pattern>/createticket</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>DeleteTicketServlet</servlet-name>
-        <servlet-class>com.servlet.DeleteTicketServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>DeleteTicketServlet</servlet-name>
-        <url-pattern>/deleteticket</url-pattern>
-    </servlet-mapping>
+  
 </web-app>
 
 

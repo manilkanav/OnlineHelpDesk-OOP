@@ -16,7 +16,7 @@ import com.model.Admin;
 /**
  * Servlet implementation class adminLoginServlet
  */
-@WebServlet("/adminLoginServlet")
+@WebServlet("/adlogin")
 public class adminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

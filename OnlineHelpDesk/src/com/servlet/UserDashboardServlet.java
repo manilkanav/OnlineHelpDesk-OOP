@@ -20,7 +20,7 @@ import com.model.User;
 /**
  * Servlet implementation class UserDashboardServlet
  */
-@WebServlet("/UserDashboardServlet")
+@WebServlet("/userdashboard")
 public class UserDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String IMAGE_DIRECTORY = "Uploads" + File.separator + "profileImages";

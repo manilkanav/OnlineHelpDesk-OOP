@@ -13,7 +13,7 @@ import com.model.Comment;
 /**
  * Servlet implementation class AddCommentServlet
  */
-@WebServlet("/AddCommentServlet")
+@WebServlet("/addcomment")
 public class AddCommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

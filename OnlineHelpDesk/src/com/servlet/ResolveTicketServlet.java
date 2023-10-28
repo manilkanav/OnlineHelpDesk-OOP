@@ -13,7 +13,7 @@ import com.dao.TicketDAO;
 /**
  * Servlet implementation class ResolveTicketServlet
  */
-@WebServlet("/ResolveTicketServlet")
+@WebServlet("/resolve")
 public class ResolveTicketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

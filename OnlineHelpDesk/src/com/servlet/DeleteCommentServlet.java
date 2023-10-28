@@ -12,7 +12,7 @@ import com.dao.CommentDAO;
 /**
  * Servlet implementation class DeleteCommentServlet
  */
-@WebServlet("/DeleteCommentServlet")
+@WebServlet("/deletecomment")
 public class DeleteCommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

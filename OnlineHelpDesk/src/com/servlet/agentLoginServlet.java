@@ -16,7 +16,7 @@ import com.model.Agent;
 /**
  * Servlet implementation class agentLoginServlet
  */
-@WebServlet("/agentLoginServlet")
+@WebServlet("/aglogin")
 public class agentLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

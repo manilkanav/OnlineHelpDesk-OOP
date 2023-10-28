@@ -16,7 +16,7 @@ import com.model.User;
 /**
  * Servlet implementation class userLoginServlet
  */
-@WebServlet("/userLoginServlet")
+@WebServlet("/ulogin")
 public class userLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
