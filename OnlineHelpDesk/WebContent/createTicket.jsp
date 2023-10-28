@@ -8,8 +8,52 @@
     
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/createticket.css" rel="stylesheet">
+     <style>
+        header {
+            padding: 10px;
+            margin: 0;
+        }
+        .nav-item.create-ticket {
+            flex: 1;       
+        }
+        .logo{
+        	font-size:45px;
+        	font-weight: 700;
+        }
+    </style>
 </head>
 <body>
+ <div style="background-color: white;">
+        <header class="border-bottom">
+            <div class="container-fluid">
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none logo" >
+                        HELPDESK
+                    </a>
+
+
+                    <ul class="nav d-flex create-ticket">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link link-body-emphasis" style="width: 200px; font-size:28px;font-weight: 500;" >Create Ticket</a>
+                        </li>
+                    </ul>
+
+                  
+                    <div class="dropdown">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <% String userImageURL = (String) session.getAttribute("userImageURL"); %>
+                            <img src="${userImageURL}" alt="mdo" width="60" height="60" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>   
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
     <div class="container mt-4">
         <h1 class="mb-4">Create Support Ticket</h1>
         <form action="createticket" method="post" enctype="multipart/form-data">
@@ -45,7 +89,8 @@
     </div>
 	
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

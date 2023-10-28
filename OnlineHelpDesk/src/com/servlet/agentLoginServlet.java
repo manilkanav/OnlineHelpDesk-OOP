@@ -30,13 +30,12 @@ public class agentLoginServlet extends HttpServlet {
 		AgentDAO agentdao = new AgentDAO();
 		Agent agent = agentdao.getAgentByUsername(username);
 		
-		if (agent != null && agent.getPassword().equals(password)) {
+		if (agent != null && agent.getPassword().equals(password) && agent.getAccount_status() == "Active") {
             HttpSession session = request.getSession();
             session.setAttribute("agentnane", username);
-            request.setAttribute("agent", agent);
+            session.setAttribute("userType", "agent");
             
-            RequestDispatcher dis = request.getRequestDispatcher("userDashboard.jsp");
-            dis.forward(request, response);
+            response.sendRedirect("AgentDashboardServlet");
             
             
         } else {

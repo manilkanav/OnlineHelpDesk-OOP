@@ -10,19 +10,25 @@ public class Comment {
 	private int agent_id;
 	private String commentText;
 	private Date timestamp;
-	
-	public Comment(int commentId, int ticketId, String commentText) {
-		this.commentId = commentId;
+
+	public Comment(int ticketId, int user_id, int agent_id, String commentText) {
 		this.ticketId = ticketId;
+		this.user_id = user_id;
+		this.agent_id = agent_id;
 		this.commentText = commentText;
 	}
+	
 
-	public Comment(int commentId, int ticketId, String commentText, Date timestamp) {
+	public Comment(int commentId, int ticketId, int user_id, int agent_id, String commentText, Date timestamp) {
 		this.commentId = commentId;
 		this.ticketId = ticketId;
+		this.user_id = user_id;
+		this.agent_id = agent_id;
 		this.commentText = commentText;
 		this.timestamp = timestamp;
 	}
+
+
 
 	public int getCommentId() {
 		return commentId;
