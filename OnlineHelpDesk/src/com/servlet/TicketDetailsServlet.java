@@ -46,9 +46,10 @@ public class TicketDetailsServlet extends HttpServlet {
             // Set ticket and image data in request attributes
             request.setAttribute("ticket", ticket);
             request.setAttribute("refImages", refImages);
+            request.setAttribute("comments", comments);
 
             // Forward to a JSP page for rendering the ticket details
-            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketDetails.jsp"); // Change this to the JSP you want to use
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketDetails.jsp"); 
             dispatcher.forward(request, response);
         } else {
             // Handle the case when the ticket is not found
