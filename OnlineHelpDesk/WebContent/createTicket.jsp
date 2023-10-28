@@ -56,7 +56,7 @@
     </div>
     <div class="container mt-4">
         <h1 class="mb-4">Create Support Ticket</h1>
-        <form action="createticket" method="post" enctype="multipart/form-data">
+        <form action="createticket" method="post" enctype="multipart/form-data"style="margin-bottom:40px">
             <div class="form-group">
                 <label for="subject">Subject:</label>
                 <input type="text" class="form-control" id="subject" name="subject" required>
