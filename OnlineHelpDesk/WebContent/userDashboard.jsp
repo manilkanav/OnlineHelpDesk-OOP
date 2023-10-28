@@ -17,7 +17,7 @@
 	<% User user = (User) session.getAttribute("user"); 
 	   String userImageURL = (String) session.getAttribute("userImageURL");%>
 	<p>
-        <%= user.getId() %>
+        Welcome! <%= user.getUsername() %>
     </p>
     
     <img src="<%= userImageURL %>" alt="Profile Image">
@@ -27,12 +27,12 @@
     <ul>
         <c:forEach items="${userTickets}" var="ticket">
             <li>
-                Ticket ID: ${ticket.id}<br>
+                Ticket ID: ${ticket.ticketId}<br>
                 Subject: ${ticket.subject}<br>
                 Status: ${ticket.status}<br>
                 <!-- "View Details" button to view ticket details -->
                 <form action="ViewTicketDetailsServlet" method="get">
-                    <input type="hidden" name="ticketId" value="${ticket.ticket_id}">
+                    <input type="hidden" name="ticketId" value="${ticket.ticketId}">
                     <button type="submit">View Details</button>
                 </form>
             </li>

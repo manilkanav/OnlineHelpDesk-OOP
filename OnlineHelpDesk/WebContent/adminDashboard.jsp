@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Admin Dashboard</a>
         <ul class="navbar-nav ml-auto">
@@ -20,8 +20,6 @@
 
     <div class="container mt-4">
         
-
-        <!-- Agent Details Table -->
         <h2>Agent Details</h2>
         <table class="table table-bordered table-striped">
             <thead>
@@ -35,7 +33,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Iterate through agents and display their details -->
                 <c:forEach items="${allAgents}" var="agent">
                     <tr>
                         <td>${agent.id}</td>
@@ -53,7 +50,6 @@
                 </c:forEach>
             </tbody>
         </table>
-        <!-- Create Agent Button -->
     	<button class="btn btn-primary" onclick="location.href='createAgent.jsp'">Create Agent</button>
 	
     </div>
