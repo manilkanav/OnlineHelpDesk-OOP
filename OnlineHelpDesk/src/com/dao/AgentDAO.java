@@ -103,7 +103,7 @@ public class AgentDAO {
             stmt.setString(4, agent.getFirst_name());
             stmt.setString(5, agent.getLast_name());
             stmt.setString(6, agent.getGender());
-            stmt.setDate(7, (java.sql.Date) agent.getDate_of_birth()); // Assuming date_of_birth is a SQL Date
+            stmt.setDate(7, new java.sql.Date (agent.getDate_of_birth().getTime())); // Assuming date_of_birth is a SQL Date
             stmt.setString(8, agent.getAccount_status());
             stmt.setString(9, agent.getDepartment());
             stmt.setString(10, agent.getType());

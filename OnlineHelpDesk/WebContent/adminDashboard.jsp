@@ -44,9 +44,9 @@
                         <td>${agent.account_status}</td>
                         <td>${agent.department}</td>
                         <td>
-                            <form action="deleteAgent" method="post">
+                            <form action="deleteagent" method="post">
                                 <input type="hidden" name="agentId" value="${agent.id}">
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <input type="submit" value="Delete" class="btn btn-danger">
                             </form>
                         </td>
                     </tr>
