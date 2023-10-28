@@ -1,5 +1,33 @@
 *{
-	padding: 0;
-	margin: 0;
+	padding: 1px;
+	margin: 1px;
 	box-sizing: border-box;
+}
+
+body{
+	background: linear-gradient(90deg,rgb(7, 141, 192)0%,rgb(12, 158, 207)30%,rgb(255, 255, 255)100%);
+	font-family: sans-serif;
+}
+
+form{
+	width: 27%;
+	background-color: white;
+	padding: 50px;
+	border-radius: 20px;
+	margin-top: 150px;
+}
+.btn-primary{
+	width: 100%;
+	border: none;
+	border-radius: 40px;
+}
+
+h4{
+	font-size: 2rem !important;
+	margin-bottom: 30px;
+	font-weight: 700;
+}
+.form-label{
+	font-weight: 600 !important;
+	font-size: 20px;
 }
