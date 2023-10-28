@@ -36,11 +36,11 @@ public class DeleteAgentServlet extends HttpServlet {
                 response.sendRedirect("adminDashboard.jsp"); // Redirect to admin dashboard or another appropriate page
             } else {
                 // Handle error, perhaps redirect to an error page
-                response.sendRedirect("errorPage.jsp"); // Change this to an appropriate error page
+                response.sendRedirect("adminDashboard.jsp"); // Change this to an appropriate error page
             }
         } else {
             // Handle unauthorized access (not an admin)
-            response.sendRedirect("accessDenied.jsp"); // Redirect to an access denied page
+            response.sendRedirect("adminDashboard.jsp"); // Redirect to an access denied page
         }
 	}
 
