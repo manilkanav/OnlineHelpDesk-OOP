@@ -28,15 +28,14 @@ public class adminLoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		AdminDAO admindao = new AdminDAO();
-		Admin agent = admindao.getAdminByUsername(username);
+		Admin admin = admindao.getAdminByUsername(username);
 		
-		if (agent != null && agent.getPassword().equals(password)) {
+		if (admin != null && admin.getPassword().equals(password)) {
             HttpSession session = request.getSession();
             session.setAttribute("agentnane", username);
-            request.setAttribute("agent", agent);
+            session.setAttribute("userType", "admin");
             
-            RequestDispatcher dis = request.getRequestDispatcher("adminDashboard.jsp");
-            dis.forward(request, response);
+            response.sendRedirect("AdminDashboardServlet");
             
             
         } else {

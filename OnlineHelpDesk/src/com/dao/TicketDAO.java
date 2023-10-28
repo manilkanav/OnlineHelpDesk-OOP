@@ -83,5 +83,198 @@ public class TicketDAO {
 		return tickets;
 	}
 	
+	public Ticket getTicketDetails(int ticketId) {
+        Connection conn = DatabaseManager.getConnection();
+        Ticket ticket = null;
+
+        try {
+            String query = "SELECT * FROM ticket WHERE ticket_id = ?";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, ticketId);
+
+            ResultSet result = stmt.executeQuery();
+
+            if (result.next()) {
+                int retrievedUserId = result.getInt("user_id");
+                String subject = result.getString("subject");
+                String description = result.getString("description");
+                String status = result.getString("status");
+                String type = result.getString("type");
+                Date createdAt = result.getDate("created_at");
+                Date resolvedAt = result.getDate("resolved_at");
+
+                ticket = new Ticket(ticketId, retrievedUserId, subject, description, status, type, createdAt, resolvedAt);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseManager.closeConnection(conn);
+        }
+
+        return ticket;
+    }
+	
+	
+	 public List<Ticket> getOpenTickets() {
+	        Connection conn = DatabaseManager.getConnection();
+	        List<Ticket> openTickets = new ArrayList<>();
+
+	        try {
+	            String query = "SELECT * FROM ticket WHERE status = 'Open'";
+	            PreparedStatement stmt = conn.prepareStatement(query);
+	            ResultSet result = stmt.executeQuery();
+
+	            while (result.next()) {
+	                int ticketId = result.getInt("ticket_id");
+	                int userId = result.getInt("user_id");
+	                String subject = result.getString("subject");
+	                String description = result.getString("description");
+	                String status = result.getString("status");
+	                String type = result.getString("type");
+	                Date createdAt = result.getDate("created_at");
+	                Date resolvedAt = result.getDate("resolved_at");
+
+	                Ticket ticket = new Ticket(ticketId, userId, subject, description, status, type, createdAt, resolvedAt);
+	                openTickets.add(ticket);
+	            }
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        } finally {
+	            DatabaseManager.closeConnection(conn);
+	        }
+
+	        return openTickets;
+	    }
+	 
+	 
+	 public List<Ticket> getEscalatedTickets() {
+	        Connection conn = DatabaseManager.getConnection();
+	        List<Ticket> escalatedTickets = new ArrayList<>();
+
+	        try {
+	            String query = "SELECT * FROM ticket WHERE status = 'Escalated'";
+	            PreparedStatement stmt = conn.prepareStatement(query);
+	            ResultSet result = stmt.executeQuery();
+
+	            while (result.next()) {
+	                int ticketId = result.getInt("ticket_id");
+	                int userId = result.getInt("user_id");
+	                String subject = result.getString("subject");
+	                String description = result.getString("description");
+	                String status = result.getString("status");
+	                String type = result.getString("type");
+	                Date createdAt = result.getDate("created_at");
+	                Date resolvedAt = result.getDate("resolved_at");
+
+	                Ticket ticket = new Ticket(ticketId, userId, subject, description, status, type, createdAt, resolvedAt);
+	                escalatedTickets.add(ticket);
+	            }
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        } finally {
+	            DatabaseManager.closeConnection(conn);
+	        }
+
+	        return escalatedTickets;
+	    }
+	 
+	 public boolean setStatusInProgress(int ticketId) {
+		    Connection conn = DatabaseManager.getConnection();
+		    boolean success = false;
+
+		    try {
+		        String query = "UPDATE ticket SET status = 'In Progress' WHERE ticket_id = ?";
+		        PreparedStatement stmt = conn.prepareStatement(query);
+		        stmt.setInt(1, ticketId);
+
+		        int rowsAffected = stmt.executeUpdate();
+
+		        if (rowsAffected > 0) {
+		            success = true;
+		        }
+
+		        stmt.close();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        DatabaseManager.closeConnection(conn);
+		    }
+
+		    return success;
+		}
+	 
+	 
+	 public boolean setStatusEscalated(int ticketId) {
+		 Connection conn = DatabaseManager.getConnection();
+		 boolean success = false;
+
+		    try {
+		        String query = "UPDATE ticket SET status = 'Escalated' WHERE ticket_id = ?";
+		        PreparedStatement stmt = conn.prepareStatement(query);
+		        stmt.setInt(1, ticketId);
+
+		        int rowsAffected = stmt.executeUpdate();
+
+		        if (rowsAffected > 0) {
+		            success = true;
+		        }
+
+		        stmt.close();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        DatabaseManager.closeConnection(conn);
+		    }
+
+		    return success;
+	 }
+	 
+	 public boolean setStatusResolve(int ticketId) {
+		    Connection conn = DatabaseManager.getConnection();
+		    
+		    try {
+		        String query = "UPDATE ticket SET status = 'Resolved', resolved_at = NOW() WHERE ticket_id = ?";
+		        PreparedStatement stmt = conn.prepareStatement(query);
+		        stmt.setInt(1, ticketId);
+		        
+		        int rowsAffected = stmt.executeUpdate();
+		        
+		        return rowsAffected > 0;
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        DatabaseManager.closeConnection(conn);
+		    }
+		    
+		    return false;
+		}
+	 
+	 public boolean deleteTicket(int ticketId) {
+		    Connection conn = DatabaseManager.getConnection();
+		    boolean success = false;
+
+		    try {
+		        String query = "DELETE FROM ticket WHERE ticket_id = ?";
+		        PreparedStatement stmt = conn.prepareStatement(query);
+		        stmt.setInt(1, ticketId);
+
+		        int rowsAffected = stmt.executeUpdate();
+
+		        if (rowsAffected > 0) {
+		            success = true;
+		        }
+
+		        stmt.close();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        DatabaseManager.closeConnection(conn);
+		    }
+
+		    return success;
+		}
 	
 }

@@ -9,6 +9,16 @@ public class RefImage {
 		this.ticketId = ticketId;
 		this.path = path;
 	}
+	
+
+	public RefImage(int imageId, int ticketId, String path) {
+		super();
+		this.imageId = imageId;
+		this.ticketId = ticketId;
+		this.path = path;
+	}
+
+
 
 	public int getImageId() {
 		return imageId;

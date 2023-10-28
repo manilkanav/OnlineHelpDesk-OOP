@@ -12,7 +12,7 @@
      	<h1>${error}</h1>
      </c:if>
      
-	 <form action="ulogin" method="post">
+	 <form action="userLoginServlet" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <br>

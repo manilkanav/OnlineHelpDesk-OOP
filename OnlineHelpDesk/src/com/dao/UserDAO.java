@@ -79,4 +79,55 @@ public class UserDAO {
 			DatabaseManager.closeConnection(conn);
 		}
 	}
+	
+	public boolean updateUser(User user) {
+	    Connection conn = DatabaseManager.getConnection();
+	    boolean updated = false;
+
+	    try {
+	        String query = "UPDATE users SET email = ?, first_name = ?, last_name = ? WHERE user_id = ?";
+	        PreparedStatement stmt = conn.prepareStatement(query);
+
+	        stmt.setString(2, user.getEmail());
+	        stmt.setString(3, user.getFirst_name());
+	        stmt.setString(4, user.getLast_name());
+	        stmt.setInt(5, user.getId());
+
+	        int rowsAffected = stmt.executeUpdate();
+
+	        if (rowsAffected > 0) {
+	            updated = true;
+	        }
+
+	        stmt.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        DatabaseManager.closeConnection(conn);
+	    }
+
+	    return updated;
+	}
+	
+	public boolean deleteUserByUsername(String username) {
+	    Connection conn = DatabaseManager.getConnection();
+	    
+	    try {
+	        String query = "DELETE FROM User WHERE username = ?";
+	        PreparedStatement stmt = conn.prepareStatement(query);
+	        stmt.setString(1, username);
+	        
+	        int rowsAffected = stmt.executeUpdate();
+	        stmt.close();
+	        
+	        // Check if the delete operation was successful
+	        return rowsAffected > 0;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        DatabaseManager.closeConnection(conn);
+	    }
+	    
+	    return false; // Return false in case of any errors
+	}
 }
