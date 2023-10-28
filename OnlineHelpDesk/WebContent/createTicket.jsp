@@ -5,8 +5,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="../css/styles.css" rel="stylesheet"> 
 </head>
 <body>
+
 	<form action="createticket" method="post" enctype="multipart/form-data">
         <label for="subject">Subject:</label>
         <input type="text" id="subject" name="subject" required>

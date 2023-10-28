@@ -16,7 +16,7 @@
      	<h1>${error}</h1>
      </c:if>
      
-	 <form action="adminLoginServlet" method="post">
+	 <form action="adlogin" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <br>

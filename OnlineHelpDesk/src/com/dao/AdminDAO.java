@@ -15,7 +15,7 @@ public class AdminDAO {
 		Connection conn = DatabaseManager.getConnection();
 		
 		try {
-			String query = "SELECT * FROM agent WHERE username=?";
+			String query = "SELECT * FROM admin WHERE username=?";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setString(1, username);
 			
