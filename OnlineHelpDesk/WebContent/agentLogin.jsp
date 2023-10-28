@@ -19,7 +19,7 @@
 	<c:if test="${not empty error}">
      	<h1>${error}</h1>
      </c:if>
-<<<<<<< HEAD
+
      <div class="container-fluid">
 	 	<form class="mx-auto" action="ulogin" method="post">
 	 	<h4 class="text-center">Agent Login</h4>
@@ -37,17 +37,5 @@
 	    </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>	
-=======
-     
-	 <form action="userLoginServlet" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <input type="submit" value="Login">
-    </form>
->>>>>>> refs/remotes/origin/main
 </body>
 </html>
