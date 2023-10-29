@@ -28,7 +28,18 @@ public class TicketDetailsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int ticketId = Integer.parseInt(request.getParameter("ticketId")); // Change this to how you pass the ticket ID
+		String query = request.getQueryString();
+		
+		int ticketId = 0;
+        if (query != null) {
+            String[] pathParts = query.split("=");
+            if (pathParts.length == 2) {
+                ticketId = Integer.parseInt(pathParts[1]);
+            }
+        }
+        System.out.println(query);
+        System.out.println(ticketId);
+ // Change this to how you pass the ticket ID
 
         // Fetch ticket details using the ticket ID
         TicketDAO ticketdao = new TicketDAO();

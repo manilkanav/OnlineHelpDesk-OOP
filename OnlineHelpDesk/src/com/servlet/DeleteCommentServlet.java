@@ -22,12 +22,13 @@ public class DeleteCommentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// You need to retrieve the comment ID from the request parameters.
         int commentId = Integer.parseInt(request.getParameter("commentId"));
+        System.out.println(commentId);
 
         CommentDAO commentDAO = new CommentDAO();
         boolean success = commentDAO.deleteComment(commentId);
 
         if (success) {
-            response.sendRedirect("ticketDetails.jsp?ticketId=" + request.getParameter("ticketId"));
+            response.sendRedirect("ticketdetails?ticketId=" + request.getParameter("ticketId"));
         } 
 	}
 

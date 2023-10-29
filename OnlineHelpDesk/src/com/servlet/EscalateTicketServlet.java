@@ -38,14 +38,14 @@ public class EscalateTicketServlet extends HttpServlet {
             request.setAttribute("successMessage", "Ticket escalated successfully.");
 
             // Use RequestDispatcher to include the success message in the forward
-            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketDetails.jsp?ticketId=" + ticketId);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketdetails?ticketId=" + ticketId);
             dispatcher.forward(request, response);
         } else {
         	//error message
         	request.setAttribute("errorMessage", "Ticket escalation failed.");
 
             // Use RequestDispatcher to include the error message in the forward
-            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketDetails.jsp?ticketId=" + ticketId);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketdetails?ticketId=" + ticketId);
             dispatcher.forward(request, response);
         }
 	}

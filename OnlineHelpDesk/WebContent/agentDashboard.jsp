@@ -25,7 +25,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Agent Dashboard</a>
+        <a class="navbar-brand" href="agentdashboard">Agent Dashboard</a>
         <button class="btn btn-danger" onclick="location.href='logout'">Logout</button>
     </nav>
 
@@ -46,17 +46,17 @@
                     </thead>
                     <tbody>
                         <!-- Iterate through open tickets and display them -->
-                        <c:forEach items="${openTickets}" var="ticket">
+                        <c:forEach items="${OpenTickets}" var="ticket">
                             <tr>
                                 <td>${ticket.ticketId}</td>
-                                <td>${ticket.title}</td>
+                                <td>${ticket.subject}</td>
                                 <td class="green-text">Open</td>
                                 <td>
-                                    <a href="ticketDetails?ticketId=${ticket.ticketId}" class="btn btn-info">View Details</a>
-                                    <form action="escalateTicket" method="post">
+                                    <a href="ticketdetails?ticketId=${ticket.ticketId}" class="btn btn-info">View Details</a>
+                                    <form action="escalate" method="post">
                                         <input type="hidden" name="ticketId" value="${ticket.ticketId}">
                                         <button type="submit" class="btn btn-warning">Escalate</button>
-                                    </form>
+     								</form>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -77,16 +77,17 @@
                     </thead>
                     <tbody>
                         <!-- Iterate through escalated tickets and display them -->
-                        <c:forEach items="${escalatedTickets}" var="ticket">
+                        <c:forEach items="${EscalatedTickets}" var="ticket">
                             <tr>
                                 <td>${ticket.ticketId}</td>
-                                <td>${ticket.title}</td>
+                                <td>${ticket.subject}</td>
                                 <td class="orange-text">Escalated</td>
                                 <td>
-                                    <a href="ticketDetails?ticketId=${ticket.ticketId}" class="btn btn-info">View Details</a>
-                                    <form action="resolveTicket" method="post">
+                                    <a href="ticketdetails?ticketId=${ticket.ticketId}" class="btn btn-info">View Details</a>
+                                    <form action="assignticket" method="post">
                                         <input type="hidden" name="ticketId" value="${ticket.ticketId}">
-                                        <button type="submit" class="btn btn-success">Resolve</button>
+                                        <input type="hidden" name="agentId" value="${agent.id}">
+                                        <button type="submit" class="btn btn-success">Assign</button>
                                     </form>
                                 </td>
                             </tr>
@@ -112,11 +113,11 @@
                 <c:forEach items="${assignedTickets}" var="ticket">
                     <tr>
                         <td>${ticket.ticketId}</td>
-                        <td>${ticket.title}</td>
+                        <td>${ticket.subject}</td>
                         <td class="blue-text">In Progress</td>
                         <td>
                             <a href="ticketDetails?ticketId=${ticket.ticketId}" class="btn btn-info">View Details</a>
-                            <form action="resolveTicket" method="post">
+                            <form action="resolve" method="post">
                                 <input type="hidden" name="ticketId" value="${ticket.ticketId}">
                                 <button type="submit" class="btn btn-success">Resolve</button>
                             </form>

@@ -7,23 +7,20 @@ public class Comment {
 	private int commentId;
 	private int ticketId;
 	private int user_id;
-	private int agent_id;
 	private String commentText;
 	private Date timestamp;
 
-	public Comment(int ticketId, int user_id, int agent_id, String commentText) {
+	public Comment(int ticketId, int user_id, String commentText) {
 		this.ticketId = ticketId;
 		this.user_id = user_id;
-		this.agent_id = agent_id;
 		this.commentText = commentText;
 	}
 	
 
-	public Comment(int commentId, int ticketId, int user_id, int agent_id, String commentText, Date timestamp) {
+	public Comment(int commentId, int ticketId, int user_id,  String commentText, Date timestamp) {
 		this.commentId = commentId;
 		this.ticketId = ticketId;
 		this.user_id = user_id;
-		this.agent_id = agent_id;
 		this.commentText = commentText;
 		this.timestamp = timestamp;
 	}
@@ -54,13 +51,6 @@ public class Comment {
 		this.user_id = user_id;
 	}
 
-	public int getAgent_id() {
-		return agent_id;
-	}
-
-	public void setAgent_id(int agent_id) {
-		this.agent_id = agent_id;
-	}
 
 	public String getCommentText() {
 		return commentText;

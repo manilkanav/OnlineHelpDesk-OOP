@@ -27,14 +27,14 @@
         <header class="border-bottom">
             <div class="container-fluid">
                 <nav class="navbar navbar-default navbar-fixed-top">
-                    <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none logo" >
+                    <a href="userdashboard" class="d-flex align-items-center link-body-emphasis text-decoration-none logo" >
                         HELPDESK
                     </a>
 
 
                     <ul class="nav d-flex create-ticket">
                         <li class="nav-item">
-                            <a href="#" class="nav-link link-body-emphasis" style="width: 200px; font-size:28px;font-weight: 500;" >Create Ticket</a>
+                            <a href="createTicket.jsp" class="nav-link link-body-emphasis" style="width: 200px; font-size:28px;font-weight: 500;" >Create Ticket</a>
                         </li>
                     </ul>
 

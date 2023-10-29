@@ -24,20 +24,29 @@ public class AddCommentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Get the parameters from the request
-        int ticketId = Integer.parseInt(request.getParameter("ticketId"));
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        int agentId = Integer.parseInt(request.getParameter("agentId"));
+		int userId = 0;
+		int ticketId = 0;
+		
+		try {
+			ticketId = Integer.parseInt(request.getParameter("ticketId"));
+			System.out.println(ticketId);
+	        userId = Integer.parseInt(request.getParameter("UserId"));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+        
         String commentText = request.getParameter("commentText");
 
         // Create a Comment object
-        Comment comment = new Comment(ticketId, userId, agentId, commentText);
+        Comment comment = new Comment(ticketId, userId, commentText);
+        System.out.println(comment.getTicketId());
 
         // Add the comment to the database
         CommentDAO commentDAO = new CommentDAO();
         commentDAO.addComment(comment);
 
         // Redirect to the ticket details page
-        response.sendRedirect("ticketDetails.jsp?ticketId=" + ticketId);
+        response.sendRedirect("ticketdetails?ticketId=" + ticketId);
 	}
 
 }

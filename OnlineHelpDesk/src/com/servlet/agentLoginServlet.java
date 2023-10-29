@@ -27,15 +27,19 @@ public class agentLoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		
 		AgentDAO agentdao = new AgentDAO();
 		Agent agent = agentdao.getAgentByUsername(username);
 		
-		if (agent != null && agent.getPassword().equals(password) && agent.getAccount_status() == "Active") {
+		
+		if (agent != null && agent.getPassword().equals(password) && agent.getAccount_status().equals("Active")) {
+			System.out.println("He should be here");
             HttpSession session = request.getSession();
             session.setAttribute("agentnane", username);
+            session.setAttribute("agent", agent);
             session.setAttribute("userType", "agent");
             
-            response.sendRedirect("AgentDashboardServlet");
+            response.sendRedirect("agentdashboard");
             
             
         } else {

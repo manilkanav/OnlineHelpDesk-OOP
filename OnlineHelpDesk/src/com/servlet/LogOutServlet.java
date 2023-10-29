@@ -17,9 +17,20 @@ public class LogOutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
+        String userType = (String) session.getAttribute("userType");
         if (session != null) {
             session.invalidate();
         }
-        response.sendRedirect("userLogin.jsp");
+        
+        if (userType == "user") {
+        	response.sendRedirect("userLogin.jsp");
+        }
+        
+        else if (userType == "agent") {
+        	response.sendRedirect("agentLogin.jsp");
+        }
+        else {
+        	response.sendRedirect("adminLogin.jsp");
+        }
     }
 }

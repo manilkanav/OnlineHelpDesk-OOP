@@ -134,8 +134,11 @@ public class TicketDAO {
 	                String type = result.getString("type");
 	                Date createdAt = result.getDate("created_at");
 	                Date resolvedAt = result.getDate("resolved_at");
+	                
+	                System.out.println("ticket dao" + ticketId);
 
 	                Ticket ticket = new Ticket(ticketId, userId, subject, description, status, type, createdAt, resolvedAt);
+	                System.out.println("ticket dao" + ticket);
 	                openTickets.add(ticket);
 	            }
 

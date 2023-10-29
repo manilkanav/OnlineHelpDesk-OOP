@@ -21,7 +21,6 @@ public class CommentDAO {
             
             stmt.setInt(1, comment.getTicketId());
             stmt.setInt(2, comment.getUser_id()); 
-            stmt.setInt(2, comment.getAgent_id()); 
             stmt.setString(3, comment.getCommentText());
 
             stmt.executeUpdate();
@@ -41,7 +40,7 @@ public class CommentDAO {
         List<Comment> comments = new ArrayList<>();
 
         try {
-            String query = "SELECT * FROM comments WHERE ticket_id = ?";
+            String query = "SELECT * FROM comment WHERE ticket_id = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, ticketId);
 
@@ -50,12 +49,11 @@ public class CommentDAO {
             while (result.next()) {
                 int commentId = result.getInt("comment_id");
                 int userId = result.getInt("user_id");
-                int agentId = result.getInt("agent_id");
                 String commentText = result.getString("comment_text");
                 // Assuming your database table has a timestamp column
                 Date timestamp = result.getDate("timestamp");
 
-                Comment comment = new Comment(commentId, ticketId, userId, agentId, commentText, timestamp);
+                Comment comment = new Comment(commentId, ticketId, userId,  commentText, timestamp);
                 comments.add(comment);
             }
 

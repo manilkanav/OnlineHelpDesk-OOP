@@ -43,11 +43,11 @@ public class AgentDashboardServlet extends HttpServlet {
         if (agent.getType().equals("Tier 1")) {
             // Agent is Tier-1, retrieve and display open tickets
             List<Ticket> tickets = ticketdao.getOpenTickets();
-            request.setAttribute("tickets", tickets);
+            session.setAttribute("OpenTickets", tickets);
         } else if (agent.getType().equals("Tier 2")) {
             // Agent is Tier-2, retrieve and display escalated tickets
             List<Ticket> tickets = ticketdao.getEscalatedTickets();
-            request.setAttribute("escalatedTickets", tickets);
+            session.setAttribute("EscalatedTickets", tickets);
         }
 
         // Retrieve all tickets assigned to the agent

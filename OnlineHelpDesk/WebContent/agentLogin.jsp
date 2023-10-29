@@ -21,7 +21,7 @@
      </c:if>
 
      <div class="container-fluid">
-	 	<form class="mx-auto" action="ulogin" method="post">
+	 	<form class="mx-auto" action="aglogin" method="post">
 	 	<h4 class="text-center">Agent Login</h4>
 		 	<div class="mb-3">
 		        <label for="username" class="form-label">Username:</label>

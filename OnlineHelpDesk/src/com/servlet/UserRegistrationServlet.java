@@ -27,7 +27,7 @@ import com.model.User;
 /**
  * Servlet implementation class UserRegistrationServlet
  */
-@WebServlet("/userregister")
+@WebServlet("/signup")
 @MultipartConfig
 public class UserRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
