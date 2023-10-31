@@ -85,13 +85,13 @@ public class UserDAO {
 	    boolean updated = false;
 
 	    try {
-	        String query = "UPDATE users SET email = ?, first_name = ?, last_name = ? WHERE user_id = ?";
+	        String query = "UPDATE user SET email = ?, first_name = ?, last_name = ? WHERE user_id = ?";
 	        PreparedStatement stmt = conn.prepareStatement(query);
 
-	        stmt.setString(2, user.getEmail());
-	        stmt.setString(3, user.getFirst_name());
-	        stmt.setString(4, user.getLast_name());
-	        stmt.setInt(5, user.getId());
+	        stmt.setString(1, user.getEmail());
+	        stmt.setString(2, user.getFirst_name());
+	        stmt.setString(3, user.getLast_name());
+	        stmt.setInt(4, user.getId());
 
 	        int rowsAffected = stmt.executeUpdate();
 

@@ -116,11 +116,15 @@
                         <td>${ticket.subject}</td>
                         <td class="blue-text">In Progress</td>
                         <td>
-                            <a href="ticketDetails?ticketId=${ticket.ticketId}" class="btn btn-info">View Details</a>
+                            <a href="ticketdetails?ticketId=${ticket.ticketId}" class="btn btn-info">View Details</a>
                             <form action="resolve" method="post">
                                 <input type="hidden" name="ticketId" value="${ticket.ticketId}">
                                 <button type="submit" class="btn btn-success">Resolve</button>
                             </form>
+                            <form action="escalate" method="post">
+                            	<input type="hidden" name="ticketId" value="${ticket.ticketId}">
+								<button type="submit" class="btn btn-warning">Escalate</button>
+     						</form>
                         </td>
                     </tr>
                 </c:forEach>

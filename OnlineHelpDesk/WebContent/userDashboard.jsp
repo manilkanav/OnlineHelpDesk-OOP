@@ -48,7 +48,7 @@
                             <img src="${userImageURL}" alt="mdo" width="60" height="60" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>   
+                            <li><a class="dropdown-item" href="editUser.jsp">Edit Profile</a></li>   
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="logout">Sign out</a></li>
                         </ul>

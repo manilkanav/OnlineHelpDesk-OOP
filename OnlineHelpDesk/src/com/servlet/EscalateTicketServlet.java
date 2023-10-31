@@ -38,8 +38,7 @@ public class EscalateTicketServlet extends HttpServlet {
             request.setAttribute("successMessage", "Ticket escalated successfully.");
 
             // Use RequestDispatcher to include the success message in the forward
-            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketdetails?ticketId=" + ticketId);
-            dispatcher.forward(request, response);
+            response.sendRedirect("admindashboard");
         } else {
         	//error message
         	request.setAttribute("errorMessage", "Ticket escalation failed.");

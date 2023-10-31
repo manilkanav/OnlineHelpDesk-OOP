@@ -41,7 +41,7 @@ public class EditUserServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("error", "Could not load customer");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("userDashboard.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("userLogin.jsp");
             dispatcher.include(request, response);
         }
 	}
@@ -69,8 +69,7 @@ public class EditUserServlet extends HttpServlet {
 	        if(updated) {
 	        	request.setAttribute("sucess", "user updated succesfully");
 	        	
-	        	RequestDispatcher dis = request.getRequestDispatcher("UserDashboardSerlvet");
-	        	dis.forward(request, response);
+	        	response.sendRedirect("userdashboard");
 	        }
 	}
 
