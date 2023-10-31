@@ -1,5 +1,6 @@
 package com.servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import com.model.Ticket;
 @WebServlet("/ticketdetails")
 public class TicketDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String IMAGE_DIRECTORY = "Uploads" + File.separator + "TicketRefImg";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,6 +51,11 @@ public class TicketDetailsServlet extends HttpServlet {
             // Fetch associated reference image URLs
             RefImageDAO refimagedao = new RefImageDAO();
             List<RefImage> refImages = refimagedao.getRefImagesByTicketId(ticketId);
+            
+            for(RefImage image : refImages) {
+            	String imgLocation = IMAGE_DIRECTORY + File.separator + image.getPath();
+            	image.setPath(imgLocation);
+            }
             
             // Fetch comments 
             CommentDAO commentdao = new CommentDAO();

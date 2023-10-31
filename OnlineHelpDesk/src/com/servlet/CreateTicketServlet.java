@@ -80,11 +80,11 @@ public class CreateTicketServlet extends HttpServlet {
     		            uploadDirectory.mkdirs();
     		        }
  
-    		        try (InputStream input = filePart.getInputStream()) {
+    		        try (InputStream input = part.getInputStream()) {
     		            Path filePath = Paths.get(uploadDirectory.getAbsolutePath(), fileName);
     		            Files.copy(input, filePath, StandardCopyOption.REPLACE_EXISTING);
     		            
-    		            RefImage referenceImage = new RefImage(ticketId, filePath.toString());
+    		            RefImage referenceImage = new RefImage(ticketId, fileName);
                         refimagedao.addRefImage(referenceImage);
     		            
     		        } catch(IOException e) {
